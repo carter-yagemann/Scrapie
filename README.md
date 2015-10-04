@@ -8,7 +8,7 @@ Scrapie is designed to make the process of mining a webpage for data simple and 
 Architecture
 ------------
 
-Scrapie is composed of three parts: the Chrome extension, the job processing back-end, and the data visualization front-end. This repository contains only the job processing back-end.
+Scrapie is composed of three parts: the Chrome extension, the job processing back-end, and the data visualization front-end.
 
 The configurations for the back-end are stored in `config.py`. This defines which directory contains the python scripts and which directories should hold the jobs and data created by Scrapie.
 
