@@ -21,7 +21,7 @@ import socket
 """
 Test Data
 """
-data1 = '[{"url":"https://www.patreon.com/jimquisition", "interval":"60"}, {"element":"totalPatrons", "attribute":"id", "value":"totalPatrons"}, {"element":"span", "attribute":"id", "value":"totalEarnings"}]'
+data1 = '[{"url":"https://www.patreon.com/jimquisition", "interval":"60"}, {"element":"div", "attribute":"id", "value":"totalPatrons"}, {"element":"span", "attribute":"id", "value":"totalEarnings"}]'
 
 """
 Test method
