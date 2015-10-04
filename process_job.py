@@ -47,6 +47,7 @@ if __name__ == "__main__":
             print "Failed to scrape", job[i]['value']
     # Write to file
     output = open(filename.replace(config.job_dir, config.data_dir).replace(".job", ".csv"), "a")
+    output.write(date + ', ')
     for i in range(len(data) - 1):
         output.write(data[i] + ', ')
     output.write(data[len(data) - 1] + '\n')

@@ -18,6 +18,6 @@
 
 port = 5334
 
-root_dir = "/home/carter/scrapie"
+root_dir = "/home/ubuntu/scrapie"
 job_dir  = "jobs"
 data_dir = "data"
