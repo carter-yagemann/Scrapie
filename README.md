@@ -8,7 +8,7 @@ Scrapie is designed to make the process of mining a webpage for data simple and 
 Architecture
 ------------
 
-Scrapie is composed of three parts: the Chrome extension, the job processing back-end, and the data visualization front-end.
+Scrapie is composed of three parts: the Chrome extension, the job processing back-end, and the data visualization front-end. The processing back-end and a very basic visualization front-end are provided in this repository.
 
 The configurations for the back-end are stored in `config.py`. This defines which directory contains the python scripts and which directories should hold the jobs and data created by Scrapie.
 
@@ -18,12 +18,12 @@ There are two important script files in this repository: `tcp_client.py` and `pr
 
 When the cron job executes, `process_job.py` is started with the name of the job to be executed as its sole argument. `process_job.py` parses this job and performs the appropriate scraping and then appends this data to the appropriate file in the data directory.
 
-Finally, the user visits the visualization front-end where they can see all the jobs on the server. They can then select a particular job to see the data for it.
+Finally, the user visits the visualization front-end, `visual_server.py`, where they can see all the jobs on the server. They can then select a particular job to see the data for it.
 
 Configuration
 -------------
 
-Since this back-end uses cron for job scheduling, Scrapie has to be deployed on a Linux or UNIX system. Scrapie is also designed for Python 2.7. `requirements.txt` contains the libraries Scrapie depends on. `tcp_client.py` should be configured to run on start-up.
+Since this back-end uses cron for job scheduling, Scrapie has to be deployed on a Linux or UNIX system. Scrapie is also designed for Python 2.7. `requirements.txt` contains the libraries Scrapie depends on. `tcp_client.py` and `visual_server.py` should be configured to run on start-up.
 
 Debugging
 ---------
