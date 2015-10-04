@@ -1,6 +1,7 @@
 import BaseHTTPServer
 import SocketServer
 import os
+import json
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_HEAD(s):
@@ -20,9 +21,12 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                 s.wfile.write("<p><a href='data/" + file + "'>" + file + "</a></p>")
         else:
             file = open(s.path[1:], "r")
+            job  = open(s.path[1:].replace("data", "jobs").replace("csv", "job"), "r")
+            s.wfile.write("<h2>" + json.loads(job.read())[0]['url'] + "</h2>")
             for row in file:
                 s.wfile.write("<p>" + row + "</p>")
             file.close()
+            job.close()
         s.wfile.write("</body></html>")
 
 PORT = 8000
