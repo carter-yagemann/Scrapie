@@ -37,7 +37,7 @@ class TCPHandler(SocketServer.BaseRequestHandler):
             self.request.sendall("OKAY")
         else:
             self.request.sendall("FAILURE")
-        
+    
     def processJson(self, data):
         try:
             # Parse job
@@ -51,13 +51,13 @@ class TCPHandler(SocketServer.BaseRequestHandler):
             # Schedule cron
             os.system('crontab -l > jobs.cron')
             jobs_file = open('jobs.cron', 'a')
-            jobs_file.write('*/' + job_json[0]['interval'] + '* * * * python ' + config.root_dir + "/process_job " + config.job_dir + job_filename)
+            jobs_file.write('*/' + job_json[0]['interval'] + ' * * * * python ' + config.root_dir + "/process_job.py " + config.root_dir + "/" + job_filename + "\n")
             jobs_file.close()
-            os.system('crontab -e < jobs.cron')
+            os.system('crontab ' + config.root_dir + '/jobs.cron')
             os.system('rm jobs.cron')
             return True
         except:
-            return False      
+            return False
 
 if __name__ == "__main__":
     HOST, PORT = "localhost", config.port
